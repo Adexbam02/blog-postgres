@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/* Ensure Quill takes full parent size without expanding */
+/* .ql-container {
+  background: #181a2a !important;
+  border: none !important;
+  box-shadow: none !important;
+  height: 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+} */
+
+/* The editable area inside */
+/* .ql-editor {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: #ffffff !important;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  word-break: break-word;
+} */
+
+/* Prevent width expansion when typing long words or pasted text */
+/* .ql-editor p,
+.ql-editor span {
+  white-space: pre-wrap;
+  word-break: break-word;
+} */
+
+/* Toolbar styling */
+/* .ql-toolbar {
+  background: #12121a !important;
+  border: none !important;
+  box-shadow: none !important;
+} */
+
+/* Optional placeholder */
+/* .ql-editor::before {
+  color: #9ca3af !important;
+} */
+
+/* Remove all borders */
+.ql-toolbar,
+.ql-container {
+  /* border: none !important;
+  box-shadow: none !important; */
+}
+
+/* Toolbar styling */
+.ql-toolbar {
+  /* background: #12121a !important; */
+  border: none !important;
+}
+
+/* Editor container */
+.ql-container {
+  /* background: #181a2a !important; */
+  box-shadow: none !important;
+  border-radius: 10px !important;
+  border-width: 1.5px !important;
+  margin-top: 20px !important;
+  height: 100% !important;
+  max-height: 400px !important;
+}
+
+/* The main editable area */
+.ql-editor {
+  color: #000000 !important;
+  font-size: 16px;
+  line-height: 1.6;
+  height: 100% !important;
+  /* max-height: 400px !important; */
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Optional placeholder color */
+.ql-editor::before {
+  color: #9ca3af !important;
+}
+
+/* styles/tiptap.css or add to globals.css */
+
+/* Placeholder styling */
+.tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #6b7280;
+  pointer-events: none;
+  height: 0;
+}
+
+/* Editor content styling */
+.tiptap {
+  outline: none;
+}
+
+.tiptap p {
+  margin: 0.5rem 0;
+}
+
+.tiptap ul,
+.tiptap ol {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.tiptap li {
+  margin: 0.25rem 0;
+}
+
+.tiptap strong {
+  font-weight: bold;
+}
+
+.tiptap em {
+  font-style: italic;
+}
+
+/* Focus state */
+.tiptap:focus {
+  outline: none;
+}
+
+.header-four {
+  @apply font-medium text-[24px] tracking-[-3%] leading-[100%] lg:text-[40px] text-center max-w-[50%];
+}
+
+.paragraph-one {
+  @apply text-black font-medium text-[18px] md:text-[20px] tracking-[-2%] leading-[100%];
+}
+
+.paragraph-two {
+  @apply text-black text-[18px] md:text-[20px] tracking-[-3%] md:tracking-[-4%] leading-[120%];
+}
