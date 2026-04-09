@@ -92,9 +92,9 @@ export default function LikeButton({ postId, isLoggedIn }: LikeButtonProps) {
     >
       <Heart
         size={20}
-        className={liked ? "fill-red-500 text-red-500" : "text-gray-400"}
+        className={liked ? "fill-red-500 text-red-500" : "text-[#fafafa]"}
       />
-      <span>{likeCount}</span>
+      <span className="text-[#fafafa]">{likeCount}</span>
     </button>
   );
 }

@@ -1,4 +1,9 @@
-import { Geist_Mono, Radio_Canada_Big, Source_Serif_4 } from "next/font/google";
+import {
+  Geist_Mono,
+  Radio_Canada_Big,
+  Source_Serif_4,
+  Castoro_Titling,
+} from "next/font/google";
 
 export const radioCanadaBig = Radio_Canada_Big({
   variable: "--font-radio-canada-big",
@@ -16,4 +21,9 @@ export const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+export const castoroTitling = Castoro_Titling({
+  subsets: ["latin"],
+  weight: ["400"],
 });

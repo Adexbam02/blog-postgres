@@ -2,30 +2,43 @@
 import { useState } from "react";
 import { Ellipsis, Trash, PenLine } from "lucide-react";
 
-
-const delePost = async (id: number) => {
-  try {
-    const res = await fetch(`http://localhost:5000/posts/${id}`, {
-      method: "DELETE",
-      credentials: "include",
-    });
-
-    const data = await res.json();
-    console.log("Status:", res.status);
-    console.log("Response:", data);
-
-    if (!res.ok) throw new Error(data.error || "Failed to delete post");
-
-    console.log("Post deleted!");
-  } catch (error) {
-    console.error(error);
-  }
-};
-
+import { useRouter } from "next/navigation";
 
 export default function PostMenu({ postId }: { postId: number }) {
   const [isOpen, setIsOpen] = useState(false);
   const [trash, setTrash] = useState(false);
+  const router = useRouter();
+
+  const delePost = async (id: number) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("You are not authenticated.");
+        return;
+      }
+
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const res = await fetch(`${apiUrl}/posts/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await res.json();
+      console.log("Status:", res.status);
+      console.log("Response:", data);
+
+      if (!res.ok) throw new Error(data.error || "Failed to delete post");
+
+      console.log("Post deleted!");
+      router.push("/"); // Redirect after deletion
+    } catch (error) {
+      console.error(error);
+      alert("Failed to delete post");
+    }
+  };
 
   return (
     <div className="relative">

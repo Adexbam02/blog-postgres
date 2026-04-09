@@ -21,7 +21,7 @@ export default function ShareButtons() {
       <div className="flex items-center rounded-full w-10 h-10 bg-[#1a1a1a] hover:bg-[#2a2a2a] transition justify-center">
         <Share
           size={20}
-          className="cursor-pointer hover:-translate-y-0.5 transition-all"
+          className="cursor-pointer hover:-translate-y-0.5 transition-all text-[#fafafa]"
         />
       </div>
       <div
@@ -30,7 +30,7 @@ export default function ShareButtons() {
       >
         <Link2
           size={20}
-          className="hover:-translate-y-0.5 transition-all"
+          className="hover:-translate-y-0.5 transition-all text-[#fafafa]"
         />
         {copied && (
           <span className="absolute -mt-20 text-xs bg-gray-800 text-white px-2 py-1 rounded">
