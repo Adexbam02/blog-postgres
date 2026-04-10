@@ -165,7 +165,7 @@ function Page() {
       {/* MAIN LAYOUT */}
       <div className="flex-1 max-w-[1400px] mx-auto w-full flex flex-col lg:flex-row gap-8 px-6 py-10">
         {/* EDITOR AREA */}
-        <div className="flex-1 w-full max-w-[850px] mx-auto bg-white rounded-[2rem] shadow-sm border border-gray-100 p-8 md:p-14 md:px-16">
+        <div className="flex-1 w-full max-w-[850px] h-fit mx-auto bg-white rounded-[2rem] shadow-sm border border-gray-100 p-8 md:p-14 md:px-16">
           <input
             type="text"
             onChange={(e) => setPublish({ ...publish, title: e.target.value })}

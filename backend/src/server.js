@@ -8,6 +8,7 @@ import pool, { initDB } from "./db.js";
 import authRouter from "./routes/authRouter.js";
 import postsRouter from "./routes/postsRouter.js";
 import userRouter from "./routes/userRouter.js";
+import notificationsRouter from "./routes/notificationsRouter.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -42,6 +43,7 @@ app.get("/", (req, res) => {
 app.use("/auth", authRouter);
 app.use("/posts", postsRouter);
 app.use("/user", userRouter);
+app.use("/notifications", notificationsRouter);
 
 // 🚀 START SERVER (after DB is ready)
 const startServer = async () => {
