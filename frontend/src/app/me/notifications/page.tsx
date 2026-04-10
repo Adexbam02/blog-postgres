@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, MessageCircle, UserPlus, Bell, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { getRelativeTime } from "@/utils/getRelativeTime";
 
 interface Notification {
   id: number;
@@ -16,22 +17,6 @@ interface Notification {
   actor_username: string | null;
   actor_avatar: string | null;
 }
-
-const getRelativeTime = (dateString: string) => {
-  const date = new Date(dateString);
-  const now = new Date();
-  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-
-  if (diffInSeconds < 60) return "Just now";
-  const diffInMinutes = Math.floor(diffInSeconds / 60);
-  if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
-  const diffInHours = Math.floor(diffInMinutes / 60);
-  if (diffInHours < 24) return `${diffInHours}h ago`;
-  const diffInDays = Math.floor(diffInHours / 24);
-  if (diffInDays < 7) return `${diffInDays}d ago`;
-
-  return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
-};
 
 export default function NotificationsPage() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
@@ -149,7 +134,7 @@ export default function NotificationsPage() {
                       className="w-11 h-11 rounded-full object-cover border-2 border-white shadow-sm"
                     />
                   ) : (
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-gray-200 to-gray-300 flex items-center justify-center border-2 border-white shadow-sm">
+                    <div className="w-11 h-11 rounded-full bg-linear-to-tr from-gray-200 to-gray-300 flex items-center justify-center border-2 border-white shadow-sm">
                       <span className="text-gray-600 font-bold text-sm">
                         {(
                           notification.actor_username?.[0] || "?"

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { truncateText } from "@/utils/truncateText";
 import FollowButton from "@/UI/FollowButton";
 import { timeAgo } from "@/utils/timeAgo";
+import { Loader2 } from "lucide-react";
 type UserProfile = {
   username: string;
   email: string;
@@ -88,8 +89,13 @@ export default function UserProfilePage() {
     fetchFollowing();
   }, [username]);
 
-  if (loading)
-    return <p className="text-center mt-10 text-gray-500">Loading profile…</p>;
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[50vh]">
+        <Loader2 className="w-8 h-8 animate-spin text-gray-400" />
+      </div>
+    );
+  }
 
   if (!profile)
     return <p className="text-center mt-10 text-red-500">User not found</p>;

@@ -137,7 +137,7 @@ export default async function Page({
           </div>
 
           <h1
-            className={`text-4xl md:text-6xl lg:text-[72px] leading-[1.1] font-extrabold mb-10 text-transparent bg-clip-text bg-linear-to-b from-gray-900 to-gray-500 tracking-tight ${castoroTitling.className}`}
+            className={`text-4xl md:text-6xl lg:text-[70px] leading-[1.1] font-extrabold mb-10 text-transparent bg-clip-text bg-linear-to-b from-gray-900 to-gray-500 tracking-tight ${castoroTitling.className}`}
           >
             {post.title}
           </h1>
@@ -192,7 +192,7 @@ export default async function Page({
           </div>
 
           <div
-            className={`prose prose-invert prose-lg md:prose-xl max-w-none text-[17px] text-gray-300 leading-relaxed marker:text-indigo-500 prose-headings:text-white prose-a:text-indigo-400 hover:prose-a:text-indigo-300 prose-img:rounded-2xl ${georgia.className}`}
+            className={`prose prose-invert prose-lg md:prose-xl max-w-none text-[18px] text-gray-500 leading-relaxed marker:text-indigo-500 prose-headings:text-white prose-a:text-indigo-400 hover:prose-a:text-indigo-300 prose-img:rounded-2xl ${georgia.className}`}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
